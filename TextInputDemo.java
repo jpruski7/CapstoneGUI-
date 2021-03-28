@@ -1,3 +1,6 @@
+// GUI for Unstable Chair - Justina Pruski
+// code was modified from an existing resource to meet the needs of the capstone project 
+
 /* From http://java.sun.com/docs/books/tutorial/index.html */
 /*
  * Copyright (c) 2006 Sun Microsystems, Inc. All Rights Reserved.
@@ -37,6 +40,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.text.*;
+import static javax.swing.JOptionPane.*;
+
 
 /**
  * TextInputDemo.java is a 1.4 application that uses
@@ -126,26 +131,53 @@ public class TextInputDemo extends JPanel
 		backspringField.setText("0");
 		leftspringField.setText("20");
 		rightspringField.setText("20");
-		System.out.print("D ");
+		    System.out.print("U ");
            	System.out.print("0 ");
            	System.out.print("0 ");
            	System.out.print("20 ");
-           	System.out.print("20 ");
+           	System.out.print("20 \n");
 		//max is set to 20 cm can be changed if needed 
 
 	}
 	else if ("lower".equals(e.getActionCommand())){
-		System.out.print("D ");
+		System.out.print("D \n");
 	}
 	else if ("raise".equals(e.getActionCommand())){
-		System.out.print("U ");
+		System.out.print("U \n");
 	}
 	 else {
             addressSet = true;
-            System.out.print(frontspringField.getText()+" ");
-            System.out.print(backspringField.getText()+ " ");
-            System.out.print(leftspringField.getText()+ " ");
-            System.out.print(rightspringField.getText()+ " ");
+            float f = Float.parseFloat(frontspringField.getText());
+            float b = Float.parseFloat(backspringField.getText());
+            float l = Float.parseFloat(leftspringField.getText());
+            float r = Float.parseFloat(rightspringField.getText());
+            if (f >= 0.0 && f <= 20.0) {
+                if (b >= 0.0 && b <= 20.0){
+                    if (l >= 0.0 && l <= 20.0){
+                        if (r >= 0.0 && r <= 20.0){
+                            System.out.print(frontspringField.getText()+" ");
+                            System.out.print(backspringField.getText()+ " ");
+                            System.out.print(leftspringField.getText()+ " ");
+                            System.out.print(rightspringField.getText()+ " \n");
+                        }
+                        else{
+                             JOptionPane.showMessageDialog(null, "Error: Invalid number(s) inputted into spring position field(s). Must be in the range of 0.0 - 20.0 cm");
+                        }
+
+                    }
+                    else{
+                         JOptionPane.showMessageDialog(null, "Error: Invalid number(s) inputted into spring position field(s). Must be in the range of 0.0 - 20.0 cm");
+                    }
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Error: Invalid number(s) inputted into spring position field(s). Must be in the range of 0.0 - 20.0 cm");
+                }
+            }
+            else 
+            {
+                //System.out.println("Error: invalid numbers inputted");
+                JOptionPane.showMessageDialog(null, "Error: Invalid number(s) inputted into spring position field(s). Must be in the range of 0.0 - 20.0 cm");
+            }
         }
        // updateDisplays();
     }
