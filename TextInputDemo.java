@@ -1,4 +1,5 @@
 // GUI for Unstable Chair - Justina Pruski
+//new comment
 // code was modified from an existing resource to meet the needs of the capstone project 
 
 /* From http://java.sun.com/docs/books/tutorial/index.html */
