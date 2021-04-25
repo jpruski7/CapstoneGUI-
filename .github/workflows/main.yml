@@ -30,7 +30,7 @@ jobs:
         run: javac -d out/ TextInputDemo.java; ls -la;
         
       - name: build jar
-        run: cd out; jar cmf MANIFEST.MF *.class; chmod +x *.jar; mkdir release; mv *.jar release; ls -la; cd ..;
+        run: cd out; jar cmf MANIFEST.MF *.class; mkdir release; mv *.jar release; ls -la; cd ..;
         
       - name: publish
         uses: actions/upload-artifact@v2
