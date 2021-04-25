@@ -24,7 +24,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: compile class files
-        run: ls -la; find out;
+        working-directory: CapstoneGUI-
+        run: ls -la;
         
       - name: build jar
         run: cd out; jar cmf MANIFEST.MF *.class; mkdir release; mv *.jar release;
